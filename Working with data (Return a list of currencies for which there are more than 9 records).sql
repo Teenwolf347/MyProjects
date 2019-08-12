@@ -1,4 +1,5 @@
-select CURRENCY, count(CURRENCY) sum
-from CURRENCY_RATES
-group by CURRENCY
-having count(CURRENCY) >= 9;
+select R.CURRENCY, count(R.CURRENCY) number of lines
+FROM CURRENCY_RATES R inner JOIN CURRENCY C
+ON R.CURRENCY = C.CURRENCY
+group by R.CURRENCY
+having count(R.CURRENCY) >= 9;
