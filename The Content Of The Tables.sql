@@ -1,3 +1,4 @@
+--Почему не исправил запрос?
 insert INTO CURRENCY (ID, CURRENCY, DESCRIPTION)
 values (NULL, 'RUR', 'Российский рубль'),
 	(NULL, 'USD', 'Доллар США'),
