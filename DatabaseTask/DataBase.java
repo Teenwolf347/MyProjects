@@ -2,7 +2,7 @@ package DatabaseTask;
 
 import java.sql.*;
 public interface DataBase {
-    public void getDataBase();
+    public void setDataBase();
     public void closeDataBase() throws SQLException;
     public void createTable(String sql);
     public void dropTable(String sql);
