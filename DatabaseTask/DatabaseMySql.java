@@ -47,7 +47,31 @@ abstract class DatabaseMySql implements DataBase {
             System.out.println(ex.getMessage());
         }
     }
+    public void getDataBase(String Url, String user, String password) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            DataSource dataSource = getMysqlDataSource(Url, user, password);
+            connection = dataSource.getConnection();
+            System.out.println("Подключение прошло успешно");
+        } catch (SQLException ex) {
+            System.err.println("Возникла ошибка при подключении: " + ex.getMessage());
+        }catch (ClassNotFoundException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
     private DataSource getMysqlDataSource() {
+        MysqlDataSource mysqlDataSource = null;
+        try {
+            mysqlDataSource = new MysqlDataSource();
+            mysqlDataSource.setURL(Url);
+            mysqlDataSource.setUser(user);
+            mysqlDataSource.setPassword(password);
+        } catch (Exception ex) {
+            ex.getStackTrace();
+        }
+        return mysqlDataSource;
+    }
+    private DataSource getMysqlDataSource(String Url, String user, String password) {
         MysqlDataSource mysqlDataSource = null;
         try {
             mysqlDataSource = new MysqlDataSource();
