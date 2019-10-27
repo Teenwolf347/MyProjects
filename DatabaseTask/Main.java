@@ -14,7 +14,7 @@ public class Main {
         String user = "root";
         String password ="1234";
         DataBaseBookStore book = new DataBaseBookStore(Url,user,password);
-        book.getDataBase();
+        book.setDataBase();
         book.getResult("Select * from bookstore");
         book.closeDataBase();
     }

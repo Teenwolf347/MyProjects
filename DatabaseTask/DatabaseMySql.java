@@ -35,7 +35,7 @@ abstract class DatabaseMySql implements DataBase {
     protected Connection getConnection() { return connection;}
 
     // Поключение к БД
-    public void getDataBase() {
+    public void setDataBase() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             DataSource dataSource = getMysqlDataSource();
@@ -47,7 +47,7 @@ abstract class DatabaseMySql implements DataBase {
             System.out.println(ex.getMessage());
         }
     }
-    public void getDataBase(String Url, String user, String password) {
+    public void setDataBase(String Url, String user, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             DataSource dataSource = getMysqlDataSource(Url, user, password);
