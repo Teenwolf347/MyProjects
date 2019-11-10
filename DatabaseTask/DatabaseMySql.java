@@ -55,7 +55,7 @@ abstract class DatabaseMySql implements DataBase {
             System.out.println("Подключение прошло успешно");
         } catch (SQLException ex) {
             System.err.println("Возникла ошибка при подключении: " + ex.getMessage());
-        }catch (ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex){
             System.out.println(ex.getMessage());
         }
     }
@@ -111,6 +111,8 @@ abstract class DatabaseMySql implements DataBase {
                 statement.executeUpdate(sql);
             } catch (SQLException ex) {
                 System.err.println(ex.getMessage());
+            }finally {
+                statement.close();
             }
         } else {
             System.err.println("Веденная команда используется не для удаления таблицы");
@@ -142,7 +144,7 @@ abstract class DatabaseMySql implements DataBase {
                 statement = connection.createStatement();
                 statement.executeUpdate(sql);
             } catch (SQLException ex) {
-                System.err.println(ex.getMessage());
+               throw new Exception(ex);
             }
         } else {
             System.err.println("Веденная команда используется не для удаления данных в таблице");
